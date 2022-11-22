@@ -1,0 +1,20 @@
+--1.Простые запросы 
+
+Select * from friendship f;
+
+Select * from Forum
+Where idForum < 20;
+
+--2.Запросы с агрегацией 
+
+Select count (idDela), friend_id from dela  d group by friend_id;
+
+Select count (d.idDela), friend_id from dela d group by friend_id order by d.idDela asc;
+
+--3.Джоин
+
+Select i.UserId, i.idGame, i.idinventar from inventar i inner join chat c on i.UserId=u.idChat ;
+
+Select c.idComments, d.idDela from Comments c
+Inner join Dela d on c.idComments = d.idDela
+Inner join Chat c on d.idDela = c.idChat ;
